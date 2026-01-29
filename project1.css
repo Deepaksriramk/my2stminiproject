@@ -1,0 +1,108 @@
+:root {
+    --bg: radial-gradient(circle at 20% 20%, #1a1a2e, #0b0c10 60%);
+    --accent: #f7b733;
+    --accent-2: #ffd166;
+    --text: #f6f7fb;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    overflow: hidden;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5em;
+}
+
+nav ul li {
+    color: var(--accent);
+    font-size: 16px;
+    border: 0.28em solid var(--accent);
+    border-radius: 0.65em;
+    width: 12em;
+    height: 3.25em;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    line-height: 3.25em;
+    transition: color 0.35s ease, letter-spacing 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+    cursor: pointer;
+    overflow: hidden;
+    background: rgba(247, 183, 51, 0.08);
+    box-shadow: 0 0 0.75em rgba(247, 183, 51, 0.25);
+}
+
+nav ul li::before {
+    content: "";
+    position: absolute;
+    inset: -25% -10%;
+    background: radial-gradient(circle, rgba(255, 209, 102, 0.35), transparent 60%);
+    filter: blur(18px);
+    z-index: -2;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+nav ul li span {
+    position: absolute;
+    width: 25%;
+    height: 120%;
+    background: linear-gradient(145deg, var(--accent), var(--accent-2));
+    transform: translateY(140%) scale(1);
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+    z-index: -1;
+}
+
+nav ul li:hover {
+    color: #0b0c10;
+    letter-spacing: 0.16em;
+    transform: translateY(-2px);
+    box-shadow: 0 0 1.25em rgba(255, 209, 102, 0.4), 0 0.6em 1.2em rgba(0, 0, 0, 0.35);
+}
+
+nav ul li:hover::before {
+    opacity: 1;
+}
+
+nav ul li:hover span {
+    transform: translateY(-10%) scale(2.35) rotate(10deg);
+}
+
+nav ul li span:nth-child(1) {
+    left: 0;
+    transition-duration: 0.2s;
+}
+
+nav ul li span:nth-child(2) {
+    left: 25%;
+    transition-duration: 0.3s;
+}
+
+nav ul li span:nth-child(3) {
+    left: 50%;
+    transition-duration: 0.4s;
+}
+
+nav ul li span:nth-child(4) {
+    left: 75%;
+    transition-duration: 0.5s;
+}
